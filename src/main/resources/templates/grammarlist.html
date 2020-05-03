@@ -1,0 +1,54 @@
+ <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Grammar List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+            crossorigin="anonymous"
+    />
+    <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+            integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+            crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/shards.min.css" />
+</head>
+<body>
+<div th:switch="${grammaticals}" class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+       
+                <h2 class="my-5">Grammatic Codes</h2>
+                <table class="table table-striped table-responsive-md">
+                    <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Properties</th>
+                        <th>Further Property 1 </th>
+                        <th>Further Property 2</th>
+                    
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="gram : ${grammaticals}">
+                        <td th:text="${gram.type}"></td>
+                        <td th:text="${gram.property}"></td>
+                        <td th:text="${gram.further_property1}"></td>
+                        <td th:text="${gram.further_property2}"></td>
+                             
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            
+        </div>
+    </div>
+</body>
+</html>

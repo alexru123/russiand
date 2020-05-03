@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Add Second Language Words</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/shards.min.css">
+</head>
+<body>
+  
+<div class="container my-5">
+    <h2 class="mb-5">Second Language Words</h2>
+    <div class="row">
+
+
+        <div class="col-md-6">
+            <form action="#" th:action="@{secondlanglist/addsec}" th:object="${seclang}" method="post">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="word" class="col-form-label">Transcription</label>
+                        <input type="text" th:field="*{word}" class="form-control" id="word" placeholder="Hebrew Word">
+                        <span th:if="${#fields.hasErrors('word')}" th:errors="*{word}" class="text-danger"></span>
+                    </div>
+                       <div class="form-group col-md-6">
+                        <label for="forms" class="col-form-label">Forms</label>
+                        <input type="text" th:field="*{forms}" class="form-control" id="forms" placeholder="forms">
+                        <span th:if="${#fields.hasErrors('forms')}" th:errors="*{forms}" class="text-danger"></span>
+                    </div>
+<!--                     <div class="form-group col-md-6">
+                        <label for="id_first" class="col-form-label">Transcription</label>
+                        <input type="number" th:field="*{id_first}" class="form-control" id="id_first" placeholder="id_first">
+                        <span th:if="${#fields.hasErrors('id_first')}" th:errors="*{id_first}" class="text-danger"></span>
+                    </div>-->
+                    <div class="form-group col-md-6">
+                        <label for="points_transcription" th:field="*{points_transcription}" class="col-form-label">Transcription knowledge (1 to 5)</label>
+                        <input type="number" id="quantity" name="points_transcription" min="1" max="5">
+                        <span th:if="${#fields.hasErrors('points_transcription')}" th:errors="*{points_transcription}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="points_knowledge" th:field="*{points_knowledge}" class="col-form-label">German Word knowledge (1 to 5)</label>
+                        <input type="number" id="knowledge_transcription" name="points_knowledge" min="1" max="5">
+                        <span th:if="${#fields.hasErrors('points_knowledge')}" th:errors="*{points_knowledge}" class="text-danger"></span>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-5">
+                        <input type="submit" class="btn btn-primary" value="Add a word">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
